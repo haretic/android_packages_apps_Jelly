@@ -94,7 +94,8 @@ class UrlBarLayout @JvmOverloads constructor(
         set(value) {
             field = value
 
-            autoCompleteTextView.setText(value)
+            // Not filtered: suggestions follow what is typed, not a page loading
+            autoCompleteTextView.setText(value, false)
             secureButton.isVisible = value?.startsWith("https://") == true
         }
 
